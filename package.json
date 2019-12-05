@@ -21,6 +21,7 @@
     "typescript": "^3.7.3"
   },
   "devDependencies": {
+    "@auto-it/upload-assets": "^7.16.3",
     "pkg": "^4.4.0"
   },
   "publishConfig": {
