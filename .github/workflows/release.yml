@@ -15,9 +15,9 @@ jobs:
         run: |
           git checkout "${GITHUB_REF:11}" --
           git remote rm origin
-          git remote add origin "https://$GH_TOKEN@github.com/zephraph/ts-query-cli"
-          git fetch origin
-          git branch --set-upstream-to origin/master
+          git remote add origin https://zephraph:$GH_TOKEN@github.com/zephraph/ts-query-cli.git
+          git fetch origin --tags
+          git branch --set-upstream-to origin/${GITHUB_REF:11} ${GITHUB_REF:11}
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
