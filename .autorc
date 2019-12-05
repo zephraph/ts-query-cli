@@ -8,7 +8,7 @@
       "./dist/ts-query/ts-query-macos.gz",
       "./dist/ts-query/ts-query-win.exe.gz"
     ]
-  ]]
+  ]],
   "labels": {
     "major": "💥Breaking",
     "minor": "🎁Feature",
