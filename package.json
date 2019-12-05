@@ -1,0 +1,22 @@
+{
+  "name": "ts-query",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "pkg --out-path ./dist index.js"
+  },
+  "dependencies": {
+    "@phenomnomnominal/tsquery": "^4.0.0",
+    "chalk": "^3.0.0",
+    "commander": "^4.0.1",
+    "dedent": "^0.7.0",
+    "filehound": "^1.17.3",
+    "lodash.get": "^4.4.2",
+    "p-queue": "^6.2.1",
+    "typescript": "^3.7.3"
+  },
+  "devDependencies": {
+    "pkg": "^4.4.0"
+  }
+}
