@@ -5,13 +5,10 @@ on: [push]
 jobs:
   release:
     runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[ci skip]')"
 
     steps:
       - uses: actions/checkout@v1
-      - name: Skip CI
-        uses: veggiemonk/skip-commit@master
-        env:
-          COMMIT_FILTER: skip ci
       - name: Prepare repository
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
