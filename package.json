@@ -8,7 +8,7 @@
     "type": "git",
     "url": "https://github.com/zephraph/ts-query-cli"
   },
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "ts-query.js",
   "license": "MIT",
   "bin": {
