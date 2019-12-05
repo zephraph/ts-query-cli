@@ -1,3 +1,16 @@
+# v1.0.3 (Thu Dec 05 2019)
+
+#### ⚠️  Pushed to master
+
+- Merge branch 'master' of github.com:zephraph/ts-query-cli  ([@zephraph](https://github.com/zephraph))
+- Fix binaries failing to upload  ([@zephraph](https://github.com/zephraph))
+
+#### Authors: 1
+
+- Justin Bennett ([@zephraph](https://github.com/zephraph))
+
+---
+
 # v1.0.1 (Thu Dec 05 2019)
 
 #### 🐛  Bug Fix
