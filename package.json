@@ -8,7 +8,7 @@
     "ts-query": "./ts-query.js"
   },
   "scripts": {
-    "build": "pkg --out-path ./dist ts-query.js"
+    "build": "pkg --out-path ./dist ts-query.js && ls dist/ts-query* | xargs gzip"
   },
   "dependencies": {
     "@phenomnomnominal/tsquery": "^4.0.0",

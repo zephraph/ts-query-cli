@@ -1,6 +1,14 @@
 {
   "repo": "https://github.com/zephraph/ts-query-cli",
   "owner": "zephraph",
+  "plugins": ["npm", "released", [
+    "upload-assets",
+    [
+      "./dist/ts-query/ts-query-linux.gz",
+      "./dist/ts-query/ts-query-macos.gz",
+      "./dist/ts-query/ts-query-win.exe.gz"
+    ]
+  ]]
   "labels": {
     "major": "💥Breaking",
     "minor": "🎁Feature",
