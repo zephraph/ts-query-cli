@@ -1,5 +1,5 @@
 {
-  "name": "ts-query",
+  "name": "ts-query-cli",
   "author": "zephraph <zephraph@gmail.com>",
   "version": "1.0.0",
   "main": "ts-query.js",
