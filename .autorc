@@ -1,6 +1,4 @@
 {
-  "repo": "https://github.com/zephraph/ts-query-cli",
-  "owner": "zephraph",
   "plugins": ["npm", "released", [
     "upload-assets",
     [
