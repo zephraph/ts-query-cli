@@ -1,0 +1,9 @@
+{
+  "repo": "https://github.com/zephraph/ts-query-cli",
+  "owner": "zephraph",
+  "labels": {
+    "major": "💥Breaking",
+    "minor": "🎁Feature",
+    "patch": "🛠Fix"
+  }
+}

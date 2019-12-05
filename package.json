@@ -1,10 +1,14 @@
 {
   "name": "ts-query",
+  "author": "zephraph <zephraph@gmail.com>",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "ts-query.js",
   "license": "MIT",
+  "bin": {
+    "ts-query": "./ts-query.js"
+  },
   "scripts": {
-    "build": "pkg --out-path ./dist index.js"
+    "build": "pkg --out-path ./dist ts-query.js"
   },
   "dependencies": {
     "@phenomnomnominal/tsquery": "^4.0.0",
@@ -18,5 +22,8 @@
   },
   "devDependencies": {
     "pkg": "^4.4.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }

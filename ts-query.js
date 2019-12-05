@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const program = require("commander");
 const files = require("filehound").create();
 const fs = require("fs").promises;
@@ -7,10 +9,6 @@ const get = require("lodash.get");
 const dedent = require("dedent");
 const path = require("path");
 const chalk = require("chalk");
-
-const sleep = milliseconds => {
-  return new Promise(resolve => setTimeout(resolve, milliseconds));
-};
 
 const queue = new PQueue({ concurrency: 5 });
 
@@ -34,6 +32,16 @@ const queryFile = (originalPath, file, query, selector) =>
 
 program
   .version(require("./package.json").version)
+  .description(
+    dedent`
+    Takes in <path> and recursively parses all .ts and .tsx files. Returns any AST node
+    that matches the tsquery (see below) <query> given. Optionally provide a [selector]
+    which is a string based key selection like a.b.c to return a value from the AST node.
+
+    For more info about building queries, see tsquery's repo:
+    https://github.com/phenomnomnominal/tsquery
+  `
+  )
   .arguments("<path> <query> [selector]")
   .action(async (path, query, selector) => {
     console.log(query);
@@ -47,3 +55,8 @@ program
   });
 
 program.parse(process.argv);
+
+if (process.argv.length === 2) {
+  program.outputHelp(chalk.red);
+  process.exit(1);
+}
