@@ -1,6 +1,13 @@
 {
   "name": "ts-query-cli",
-  "author": "zephraph <zephraph@gmail.com>",
+  "author": {
+    "name": "Justin Bennett",
+    "email": "zephraph@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zephraph/ts-query-cli"
+  },
   "version": "1.0.0",
   "main": "ts-query.js",
   "license": "MIT",
