@@ -9,8 +9,17 @@ const get = require("lodash.get");
 const dedent = require("dedent");
 const path = require("path");
 const chalk = require("chalk");
+const omit = require("deep-delete");
 
 const queue = new PQueue({ concurrency: 5 });
+
+const output = result => {
+  if (typeof result === "string") {
+    return chalk.yellow(result);
+  } else {
+    return result;
+  }
+};
 
 const queryFile = (originalPath, file, query, selector) =>
   fs.readFile(file, "utf8").then(contents => {
@@ -24,8 +33,10 @@ const queryFile = (originalPath, file, query, selector) =>
         file: ${chalk.blue(
           path.join(originalPath, path.relative(originalPath, file))
         )}
-        ${nodes.map(n => `- ${chalk.yellow(n)}`).join("\n")}
       `);
+      for (const node of nodes) {
+        console.log("-", omit(["parent", "pos", "end"], node));
+      }
       console.log("");
     }
   });

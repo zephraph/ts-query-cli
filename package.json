@@ -22,6 +22,7 @@
     "chalk": "^3.0.0",
     "commander": "^4.0.1",
     "dedent": "^0.7.0",
+    "deep-delete": "^2.1.1",
     "filehound": "^1.17.3",
     "lodash.get": "^4.4.2",
     "p-queue": "^6.2.1",
