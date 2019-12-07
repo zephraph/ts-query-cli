@@ -594,11 +594,6 @@ dedent@^0.7.0:
   resolved "https://registry.yarnpkg.com/dedent/-/dedent-0.7.0.tgz#2495ddbaf6eb874abb0e1be9df22d2e5a544326c"
   integrity sha1-JJXduvbrh0q7Dhvp3yLS5aVEMmw=
 
-deep-delete@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/deep-delete/-/deep-delete-2.1.1.tgz#5f5f67b7a165d869709fbb82a51f818ca21f47eb"
-  integrity sha512-hb12KFflv1V4ctQqLsl2RKAb6m5vfAoEeZR8D4IOMIgJKUPRsNaqwXgGBhiJfpOGm3qEZS/XLT5O5unOOQXxRw==
-
 deep-is@~0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"

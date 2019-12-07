@@ -9,7 +9,7 @@ const get = require("lodash.get");
 const dedent = require("dedent");
 const path = require("path");
 const chalk = require("chalk");
-const omit = require("deep-delete");
+const filter = require("./lib/filter-node");
 
 const queue = new PQueue({ concurrency: 5 });
 
@@ -35,7 +35,7 @@ const queryFile = (originalPath, file, query, selector) =>
         )}
       `);
       for (const node of nodes) {
-        console.log("-", omit(["parent", "pos", "end"], node));
+        console.log("-", filter(node, ["parent"]));
       }
       console.log("");
     }
@@ -53,9 +53,9 @@ program
     https://github.com/phenomnomnominal/tsquery
   `
   )
+  .option("-f --flatten", "Only prints out the keys")
   .arguments("<path> <query> [selector]")
   .action(async (path, query, selector) => {
-    console.log(query);
     files
       .paths(path)
       .ext(["ts", "tsx"])
