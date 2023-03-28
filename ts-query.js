@@ -9,26 +9,43 @@ const get = require("lodash.get");
 const dedent = require("dedent");
 const path = require("path");
 const chalk = require("chalk");
+const ts = require("typescript");
 
 const queue = new PQueue({ concurrency: 5 });
 
 const queryFile = (originalPath, file, query, selector) =>
-  fs.readFile(file, "utf8").then(contents => {
+  fs.readFile(file, 'utf8').then((contents) => {
     const ast = tsquery.ast(contents);
     let nodes = tsquery(ast, query);
-    if (selector) {
-      nodes = nodes.map(node => get(node, selector));
-    }
+    const fileLines = contents.split('\n');
+
     if (nodes.length > 0) {
-      console.log(dedent`
-        file: ${chalk.blue(
+      console.log(
+        `file: ${chalk.blue(
           path.join(originalPath, path.relative(originalPath, file))
-        )}
-        ${nodes.map(n => `- ${chalk.yellow(n)}`).join("\n")}
-      `);
-      console.log("");
+        )}`
+      );
+
+      nodes.forEach((node) => {
+        const { line, character } = ts.getLineAndCharacterOfPosition(
+          ast,
+          node.getStart()
+        );
+        const startLine = Math.max(0, line - 2);
+        const endLine = Math.min(fileLines.length - 1, line + 2);
+
+        console.log(`Match at line ${line + 1}, character ${character + 1}:`);
+        for (let i = startLine; i <= endLine; i++) {
+          console.log(
+            `  ${i + 1}: ${i === line ? chalk.yellow(fileLines[i]) : fileLines[i]}`
+          );
+        }
+      });
+
+      console.log('\n');
     }
   });
+
 
 program
   .version(require("./package.json").version)
