@@ -9,8 +9,17 @@ const get = require("lodash.get");
 const dedent = require("dedent");
 const path = require("path");
 const chalk = require("chalk");
+const filter = require("./lib/filter-node");
 
 const queue = new PQueue({ concurrency: 5 });
+
+const output = result => {
+  if (typeof result === "string") {
+    return chalk.yellow(result);
+  } else {
+    return result;
+  }
+};
 
 const queryFile = (originalPath, file, query, selector) =>
   fs.readFile(file, "utf8").then(contents => {
@@ -24,8 +33,10 @@ const queryFile = (originalPath, file, query, selector) =>
         file: ${chalk.blue(
           path.join(originalPath, path.relative(originalPath, file))
         )}
-        ${nodes.map(n => `- ${chalk.yellow(n)}`).join("\n")}
       `);
+      for (const node of nodes) {
+        console.log("-", filter(node, ["parent"]));
+      }
       console.log("");
     }
   });
@@ -42,9 +53,9 @@ program
     https://github.com/phenomnomnominal/tsquery
   `
   )
+  .option("-f --flatten", "Only prints out the keys")
   .arguments("<path> <query> [selector]")
   .action(async (path, query, selector) => {
-    console.log(query);
     files
       .paths(path)
       .ext(["ts", "tsx"])
